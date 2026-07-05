@@ -140,23 +140,12 @@ app.use(morgan("dev"));
 |--------------------------------------------------------------------------
 */
 
-app.get("/", (req, res) => {
-
+app.get("/health", (req, res) => {
   res.status(200).json({
-
     success: true,
-
-    message:
-      "Geo & Kristine RSVP Backend API is running.",
-
-    environment:
-      process.env.NODE_ENV,
-
-    timestamp:
-      new Date().toISOString(),
-
+    message: "Backend is healthy",
+    version: "1.0.0",
   });
-
 });
 
 /*
