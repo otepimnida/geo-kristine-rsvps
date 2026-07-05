@@ -1,0 +1,132 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Dashboard Empty State Styles
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+.container{
+
+    background:#FFFFFF;
+
+    border-radius:24px;
+
+    padding:70px 40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 35px rgba(15,23,42,.05);
+
+}
+
+.iconWrapper{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:#F5F7FB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.icon{
+
+    font-size:3rem;
+
+    color:#0B2A61;
+
+}
+
+.title{
+
+    color:#0B2A61;
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.description{
+
+    max-width:540px;
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    margin-bottom:32px;
+
+}
+
+.button{
+
+    border:none;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    padding:14px 28px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.button:hover{
+
+    background:#D5AD36;
+
+    color:#0B2A61;
+
+}
+
+@media(max-width:768px){
+
+.container{
+
+padding:48px 24px;
+
+}
+
+.title{
+
+font-size:1.35rem;
+
+}
+
+}

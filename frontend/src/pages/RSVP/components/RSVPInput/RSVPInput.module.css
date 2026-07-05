@@ -1,0 +1,209 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+RSVPInput.module.css
+
+Description:
+Reusable RSVP Input Styles
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+/* ====================================================== */
+/* GROUP */
+/* ====================================================== */
+
+.group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    width:100%;
+
+}
+
+/* ====================================================== */
+/* LABEL */
+/* ====================================================== */
+
+.label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#0B2A61;
+
+    letter-spacing:.2px;
+
+}
+
+.required{
+
+    color:#D5AD36;
+
+    margin-left:4px;
+
+}
+
+/* ====================================================== */
+/* INPUT */
+/* ====================================================== */
+
+.input{
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 18px;
+
+    border:1px solid #D7DCE5;
+
+    border-radius:16px;
+
+    background:#FFFFFF;
+
+    color:#1F2937;
+
+    font-size:1rem;
+
+    transition:
+
+        border-color .25s ease,
+
+        box-shadow .25s ease,
+
+        background .25s ease;
+
+}
+
+.input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.input:hover{
+
+    border-color:#D5AD36;
+
+}
+
+.input:focus{
+
+    outline:none;
+
+    border-color:#0B2A61;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(11,42,97,.08);
+
+}
+
+/* ====================================================== */
+/* DISABLED */
+/* ====================================================== */
+
+.input:disabled{
+
+    background:#F5F7FA;
+
+    cursor:not-allowed;
+
+    opacity:.8;
+
+}
+
+/* ====================================================== */
+/* ERROR */
+/* ====================================================== */
+
+.errorInput{
+
+    border-color:#DC2626;
+
+}
+
+.errorInput:focus{
+
+    border-color:#DC2626;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(220,38,38,.10);
+
+}
+
+.errorContainer{
+
+    min-height:18px;
+
+}
+
+.error{
+
+    color:#DC2626;
+
+    font-size:.80rem;
+
+    font-weight:500;
+
+}
+
+/* ====================================================== */
+/* RESPONSIVE */
+/* ====================================================== */
+
+@media (max-width:768px){
+
+.input{
+
+height:54px;
+
+font-size:.95rem;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.label{
+
+font-size:.90rem;
+
+}
+
+.input{
+
+height:52px;
+
+padding:0 16px;
+
+font-size:.92rem;
+
+}
+
+.error{
+
+font-size:.78rem;
+
+}
+
+}

@@ -1,0 +1,185 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+LoginPage.module.css
+
+Description:
+Admin Login Page Styles
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+.page{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #EEF4FA 0%,
+        #FFFFFF 100%
+    );
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(213,173,54,.08),
+        transparent 55%
+    );
+
+}
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.card{
+
+    width:100%;
+
+    max-width:480px;
+
+    background:#FFFFFF;
+
+    border-radius:28px;
+
+    padding:48px;
+
+    box-shadow:
+    0 24px 60px
+    rgba(15,23,42,.08);
+
+}
+
+.overline{
+
+    text-align:center;
+
+    color:#D5AD36;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.title{
+
+    text-align:center;
+
+    color:#0B2A61;
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.description{
+
+    text-align:center;
+
+    color:#6B7280;
+
+    line-height:1.7;
+
+    margin-bottom:40px;
+
+}
+
+.placeholder{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:120px;
+
+    border:2px dashed #D7DCE5;
+
+    border-radius:18px;
+
+    color:#9CA3AF;
+
+    font-weight:600;
+
+}
+
+@media(max-width:768px){
+
+.card{
+
+padding:36px 28px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.page{
+
+padding:20px;
+
+}
+
+.card{
+
+padding:28px 20px;
+
+border-radius:20px;
+
+}
+
+.title{
+
+font-size:1.6rem;
+
+}
+
+}

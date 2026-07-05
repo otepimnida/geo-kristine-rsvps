@@ -1,0 +1,167 @@
+/**
+ * ==========================================================
+ * Geo & Kristine RSVP System
+ * ----------------------------------------------------------
+ * File:
+ * LandingPage.module.css
+ *
+ * Description:
+ * Premium Landing Page Layout
+ *
+ * Author:
+ * OpenAI + Otep
+ *
+ * Version:
+ * 3.0.0
+ * ==========================================================
+ */
+
+/* ==========================================================
+   Root Page
+========================================================== */
+
+.page {
+
+  position: relative;
+
+  width: 100vw;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #edf2f8;
+
+}
+
+/* ==========================================================
+   Blurred Background
+========================================================== */
+
+.background {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  transform: scale(1.12);
+
+  filter: blur(24px);
+
+  opacity: .30;
+
+}
+
+/* ==========================================================
+   Overlay
+========================================================== */
+
+.overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+
+      rgba(255,255,255,.15),
+
+      rgba(255,255,255,.08)
+
+    );
+
+}
+
+/* ==========================================================
+   Invitation Container
+========================================================== */
+
+.content {
+
+  position: relative;
+
+  z-index: 10;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 100%;
+
+  height: 100%;
+
+  padding: 30px;
+
+}
+
+/* ==========================================================
+   Large Desktop
+========================================================== */
+
+@media (min-width:1600px){
+
+  .content{
+
+    padding:50px;
+
+  }
+
+}
+
+/* ==========================================================
+   Laptop
+========================================================== */
+
+@media (max-width:1200px){
+
+  .content{
+
+    padding:24px;
+
+  }
+
+}
+
+/* ==========================================================
+   Tablet
+========================================================== */
+
+@media (max-width:768px){
+
+  .content{
+
+    padding:16px;
+
+  }
+
+}
+
+/* ==========================================================
+   Mobile
+========================================================== */
+
+@media (max-width:480px){
+
+  .content{
+
+    padding:10px;
+
+  }
+
+}   

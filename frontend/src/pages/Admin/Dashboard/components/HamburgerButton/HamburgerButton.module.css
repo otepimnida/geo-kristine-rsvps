@@ -1,0 +1,68 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Hamburger Button
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+.button{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:
+        background .25s,
+        transform .25s;
+
+    box-shadow:
+        0 8px 20px rgba(15,23,42,.08);
+
+}
+
+.button:hover{
+
+    background:#F8FAFC;
+
+    transform:translateY(-1px);
+
+}
+
+.icon{
+
+    font-size:1.6rem;
+
+    color:#0B2A61;
+
+}
+
+@media(max-width:992px){
+
+.button{
+
+display:flex;
+
+}
+
+}

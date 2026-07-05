@@ -1,0 +1,137 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+RSVPCard.module.css
+
+Description:
+Luxury Wedding RSVP Card
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+.card{
+
+    width:100%;
+
+    max-width:760px;
+
+    padding:48px;
+
+    border-radius:28px;
+
+    background:#FFFFFF;
+
+    box-shadow:
+
+        0 24px 60px
+
+        rgba(15,23,42,.08);
+
+}
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:42px;
+
+}
+
+.overline{
+
+    color:#D5AD36;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.title{
+
+    color:#0B2A61;
+
+    font-size:2.1rem;
+
+    margin-bottom:18px;
+
+}
+
+.description{
+
+    color:#6B7280;
+
+    line-height:1.8;
+
+    max-width:520px;
+
+    margin:auto;
+
+}
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+@media(max-width:768px){
+
+.card{
+
+padding:36px 28px;
+
+}
+
+.title{
+
+font-size:1.8rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.card{
+
+padding:28px 20px;
+
+border-radius:20px;
+
+}
+
+.title{
+
+font-size:1.55rem;
+
+}
+
+.description{
+
+font-size:.92rem;
+
+}
+
+.form{
+
+gap:22px;
+
+}
+
+}

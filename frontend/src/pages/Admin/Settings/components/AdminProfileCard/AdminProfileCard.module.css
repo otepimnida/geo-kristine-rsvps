@@ -1,0 +1,274 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Administrator Profile Card
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+.card{
+
+    background:#FFFFFF;
+
+    border:1px solid #EEF2F7;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+
+}
+
+.header{
+
+    margin-bottom:24px;
+
+}
+
+.header h2{
+
+    margin:0;
+
+    color:#0B2A61;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+}
+
+.header p{
+
+    margin-top:8px;
+
+    color:#64748B;
+
+    line-height:1.7;
+
+    font-size:.95rem;
+
+}
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+.group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.group label{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.inputWrapper{
+
+    position:relative;
+
+}
+
+.icon{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94A3B8;
+
+    font-size:1.1rem;
+
+}
+
+.inputWrapper input{
+
+    width:100%;
+
+    height:52px;
+
+    padding:0 16px 0 48px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+}
+
+.inputWrapper input:focus{
+
+    border-color:#0B2A61;
+
+    box-shadow:
+
+        0 0 0 3px rgba(11,42,97,.10);
+
+}
+
+.readonly{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-height:52px;
+
+    padding:0 16px 0 48px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:14px;
+
+    background:#F8FAFC;
+
+    position:relative;
+
+}
+
+.readonly .icon{
+
+    left:16px;
+
+}
+
+.readonly span{
+
+    color:#0F172A;
+
+    font-weight:600;
+
+}
+
+.footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:12px;
+
+}
+
+.saveButton{
+
+    min-width:180px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.saveButton:hover:not(:disabled){
+
+    background:#133A7A;
+
+}
+
+.saveButton:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+@media(max-width:768px){
+
+.card{
+
+    padding:22px;
+
+}
+
+.footer{
+
+    justify-content:stretch;
+
+}
+
+.saveButton{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.card{
+
+    padding:18px;
+
+}
+
+.header h2{
+
+    font-size:1.2rem;
+
+}
+
+.inputWrapper input{
+
+    height:48px;
+
+}
+
+.readonly{
+
+    min-height:48px;
+
+}
+
+}

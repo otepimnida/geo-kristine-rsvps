@@ -1,0 +1,209 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+AttendanceSelector.module.css
+
+Description:
+Wedding Attendance Selector
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+/* ============================================== */
+
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+/* ============================================== */
+
+.label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#0B2A61;
+
+}
+
+.required{
+
+    color:#D5AD36;
+
+    margin-left:4px;
+
+}
+
+/* ============================================== */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+/* ============================================== */
+
+.option{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding:22px;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    background:#FFFFFF;
+
+    cursor:pointer;
+
+    transition:
+
+        all .25s ease;
+
+}
+
+.option:hover{
+
+    border-color:#D5AD36;
+
+    transform:translateY(-2px);
+
+}
+
+/* ============================================== */
+
+.active{
+
+    border-color:#D5AD36;
+
+    background:#FFFDF6;
+
+    box-shadow:
+
+        0 14px 32px
+
+        rgba(213,173,54,.18);
+
+}
+
+/* ============================================== */
+
+.radio{
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    border:2px solid #D1D5DB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    margin-top:2px;
+
+}
+
+.active .radio{
+
+    border-color:#0B2A61;
+
+}
+
+/* ============================================== */
+
+.dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#0B2A61;
+
+}
+
+/* ============================================== */
+
+.content{
+
+    flex:1;
+
+}
+
+.content h4{
+
+    color:#0B2A61;
+
+    font-size:1rem;
+
+    margin-bottom:6px;
+
+    font-weight:600;
+
+}
+
+.content p{
+
+    color:#6B7280;
+
+    font-size:.88rem;
+
+    line-height:1.5;
+
+}
+
+/* ============================================== */
+
+.error{
+
+    color:#DC2626;
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+}
+
+/* ============================================== */
+
+@media (max-width:768px){
+
+.options{
+
+grid-template-columns:1fr;
+
+}
+
+}

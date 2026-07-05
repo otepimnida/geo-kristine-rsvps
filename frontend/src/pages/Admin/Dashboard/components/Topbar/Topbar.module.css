@@ -1,0 +1,261 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Topbar
+
+Author:
+OpenAI + Otep
+
+Version:
+5.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Topbar
+======================================================= */
+
+.topbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:900;
+
+    height:82px;
+
+    background:#FFFFFF;
+
+    border-bottom:1px solid #EEF2F7;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 32px;
+
+}
+
+/* =======================================================
+   Left
+======================================================= */
+
+.left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.brand{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.brand h2{
+
+    margin:0;
+
+    font-size:1.15rem;
+
+    color:#0B2A61;
+
+    font-weight:700;
+
+}
+
+.brand span{
+
+    margin-top:3px;
+
+    font-size:.82rem;
+
+    color:#64748B;
+
+}
+
+/* =======================================================
+   Right
+======================================================= */
+
+.right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* Notification */
+
+.notification{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#F8FAFC;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.25s;
+
+}
+
+.notification svg{
+
+    font-size:1.25rem;
+
+    color:#0B2A61;
+
+}
+
+.notification:hover{
+
+    background:#EEF2F7;
+
+}
+
+/* =======================================================
+   Profile
+======================================================= */
+
+.profile{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:8px 12px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.profile:hover{
+
+    background:#F8FAFC;
+
+}
+
+.avatar{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+}
+
+.info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.info strong{
+
+    font-size:.92rem;
+
+    color:#0B2A61;
+
+}
+
+.info small{
+
+    font-size:.78rem;
+
+    color:#64748B;
+
+}
+
+/* =======================================================
+   Tablet
+======================================================= */
+
+@media(max-width:992px){
+
+.topbar{
+
+    padding:0 20px;
+
+}
+
+.info{
+
+    display:none;
+
+}
+
+}
+
+/* =======================================================
+   Mobile
+======================================================= */
+
+@media(max-width:576px){
+
+.topbar{
+
+    height:72px;
+
+    padding:0 16px;
+
+}
+
+.brand span{
+
+    display:none;
+
+}
+
+}

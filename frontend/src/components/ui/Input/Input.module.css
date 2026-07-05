@@ -1,0 +1,64 @@
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    width:100%;
+}
+
+.label{
+
+    font-family:
+    "Poppins",sans-serif;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#0B1F3A;
+}
+
+.required{
+
+    color:#D4AF37;
+
+    margin-left:4px;
+}
+
+.input{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:1px solid #D8D8D8;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+    background:#fff;
+}
+
+.input:focus{
+
+    border-color:#D4AF37;
+
+    box-shadow:
+    0 0 0 4px rgba(212,175,55,.15);
+}
+
+.errorInput{
+
+    border-color:#E63946;
+}
+
+.error{
+
+    color:#E63946;
+
+    font-size:.8rem;
+}

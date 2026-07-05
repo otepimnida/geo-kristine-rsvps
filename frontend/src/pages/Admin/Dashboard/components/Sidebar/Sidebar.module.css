@@ -1,0 +1,221 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Sidebar
+
+Author:
+OpenAI + Otep
+
+Version:
+5.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Sidebar
+======================================================= */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:260px;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    z-index:1000;
+
+}
+
+/* =======================================================
+   Brand
+======================================================= */
+
+.brand{
+
+    padding:32px 24px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.title{
+
+    margin:0;
+
+    font-size:1.75rem;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:#FFFFFF;
+
+}
+
+.subtitle{
+
+    margin:8px 0 0;
+
+    font-size:.9rem;
+
+    color:#D5AD36;
+
+    letter-spacing:.3px;
+
+}
+
+/* =======================================================
+   Navigation
+======================================================= */
+
+.navigation{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:24px 16px;
+
+}
+
+.link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    color:rgba(255,255,255,.85);
+
+    text-decoration:none;
+
+    font-size:.96rem;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.link svg{
+
+    font-size:1.25rem;
+
+    flex-shrink:0;
+
+}
+
+.link:hover{
+
+    background:rgba(255,255,255,.08);
+
+    color:#FFFFFF;
+
+}
+
+.active{
+
+    background:#D5AD36;
+
+    color:#0B2A61;
+
+}
+
+.active svg{
+
+    color:#0B2A61;
+
+}
+
+/* =======================================================
+   Footer
+======================================================= */
+
+.footer{
+
+    padding:20px 16px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+/* =======================================================
+   Logout
+======================================================= */
+
+.logout{
+
+    width:100%;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    color:#0B2A61;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.logout:hover{
+
+    background:#F3F4F6;
+
+}
+
+/* =======================================================
+   Mobile
+======================================================= */
+
+@media (max-width:992px){
+
+.sidebar{
+
+    display:none;
+
+}
+
+}

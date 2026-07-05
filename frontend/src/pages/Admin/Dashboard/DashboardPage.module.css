@@ -1,0 +1,205 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Dashboard Page
+
+Author:
+OpenAI + Otep
+
+Version:
+5.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Dashboard Container
+======================================================= */
+
+.dashboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:32px;
+
+    width:100%;
+
+    min-height:100%;
+
+}
+
+/* =======================================================
+   Header
+======================================================= */
+
+.header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.header h1{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#0B2A61;
+
+    line-height:1.2;
+
+}
+
+.header p{
+
+    margin:0;
+
+    color:#64748B;
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:720px;
+
+}
+
+/* =======================================================
+   Loading
+======================================================= */
+
+.loading{
+
+    min-height:60vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:18px;
+
+}
+
+.spinner{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    border:5px solid #E2E8F0;
+
+    border-top-color:#0B2A61;
+
+    animation:spin .9s linear infinite;
+
+}
+
+.loading h2{
+
+    margin:0;
+
+    font-size:1.5rem;
+
+    color:#0B2A61;
+
+}
+
+.loading p{
+
+    margin:0;
+
+    color:#64748B;
+
+    line-height:1.6;
+
+    max-width:400px;
+
+}
+
+/* =======================================================
+   Spinner Animation
+======================================================= */
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* =======================================================
+   Tablet
+======================================================= */
+
+@media (max-width:992px){
+
+.dashboard{
+
+    gap:28px;
+
+}
+
+.header h1{
+
+    font-size:1.8rem;
+
+}
+
+}
+
+/* =======================================================
+   Mobile
+======================================================= */
+
+@media (max-width:576px){
+
+.dashboard{
+
+    gap:24px;
+
+}
+
+.header h1{
+
+    font-size:1.6rem;
+
+}
+
+.header p{
+
+    font-size:.95rem;
+
+}
+
+.loading{
+
+    min-height:50vh;
+
+}
+
+}

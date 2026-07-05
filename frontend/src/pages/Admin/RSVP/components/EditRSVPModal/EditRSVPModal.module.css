@@ -1,0 +1,521 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Edit RSVP Modal
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Overlay
+======================================================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.55);
+
+    backdrop-filter:blur(4px);
+
+    z-index:998;
+
+    animation:fadeIn .25s ease;
+
+}
+
+/* =======================================================
+   Modal
+======================================================= */
+
+.modal{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:100%;
+
+    max-width:640px;
+
+    max-height:90vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#FFFFFF;
+
+    border-radius:22px;
+
+    box-shadow:
+
+        0 25px 60px rgba(15,23,42,.18);
+
+    z-index:999;
+
+    animation:modalIn .28s ease;
+
+}
+
+/* =======================================================
+   Header
+======================================================= */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    padding:26px 30px;
+
+    border-bottom:1px solid #E5E7EB;
+
+    background:#FFFFFF;
+
+}
+
+.header h2{
+
+    margin:0;
+
+    color:#0B2A61;
+
+    font-size:1.55rem;
+
+    font-weight:700;
+
+}
+
+.header p{
+
+    margin-top:6px;
+
+    color:#64748B;
+
+    font-size:.92rem;
+
+}
+
+/* =======================================================
+   Close Button
+======================================================= */
+
+.close{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#F8FAFC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    color:#0B2A61;
+
+    transition:
+
+        background .25s,
+
+        transform .25s;
+
+}
+
+.close:hover{
+
+    background:#EEF2F7;
+
+    transform:rotate(90deg);
+
+}
+
+.close svg{
+
+    font-size:1.35rem;
+
+}
+
+/* =======================================================
+   Form
+======================================================= */
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    padding:30px;
+
+    overflow-y:auto;
+
+}
+
+/* =======================================================
+   Group
+======================================================= */
+
+.group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.group label{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+/* =======================================================
+   Inputs
+======================================================= */
+
+.group input,
+
+.group select,
+
+.group textarea{
+
+    width:100%;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:14px;
+
+    padding:14px 16px;
+
+    font-size:.95rem;
+
+    font-family:inherit;
+
+    background:#FFFFFF;
+
+    transition:
+
+        border-color .25s,
+
+        box-shadow .25s;
+
+}
+
+.group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.group input:focus,
+
+.group select:focus,
+
+.group textarea:focus{
+
+    outline:none;
+
+    border-color:#D5AD36;
+
+    box-shadow:
+
+        0 0 0 4px rgba(213,173,54,.15);
+
+}
+
+/* =======================================================
+   Validation
+======================================================= */
+
+.group small{
+
+    color:#DC2626;
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+}
+
+/* =======================================================
+   Footer
+======================================================= */
+
+.footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    margin-top:8px;
+
+    padding-top:12px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* =======================================================
+   Buttons
+======================================================= */
+
+.cancelButton{
+
+    border:none;
+
+    background:#F1F5F9;
+
+    color:#334155;
+
+    padding:13px 24px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:
+
+        background .25s,
+
+        transform .25s;
+
+}
+
+.cancelButton:hover:not(:disabled){
+
+    background:#E2E8F0;
+
+    transform:translateY(-2px);
+
+}
+
+.saveButton{
+
+    border:none;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    padding:13px 28px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:
+
+        background .25s,
+
+        transform .25s;
+
+}
+
+.saveButton:hover:not(:disabled){
+
+    background:#123A82;
+
+    transform:translateY(-2px);
+
+}
+
+.cancelButton:disabled,
+
+.saveButton:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+/* =======================================================
+   Scrollbar
+======================================================= */
+
+.form::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.form::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:999px;
+
+}
+
+.form::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* =======================================================
+   Animations
+======================================================= */
+
+@keyframes modalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-48%)
+            scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* =======================================================
+   Tablet
+======================================================= */
+
+@media(max-width:768px){
+
+.modal{
+
+    width:92%;
+
+    max-height:92vh;
+
+}
+
+.header{
+
+    padding:22px;
+
+}
+
+.form{
+
+    padding:22px;
+
+}
+
+}
+
+/* =======================================================
+   Mobile
+======================================================= */
+
+@media(max-width:576px){
+
+.modal{
+
+    width:100%;
+
+    height:100%;
+
+    max-width:none;
+
+    max-height:none;
+
+    border-radius:0;
+
+}
+
+.header{
+
+    padding:20px;
+
+}
+
+.form{
+
+    padding:20px;
+
+}
+
+.footer{
+
+    flex-direction:column;
+
+}
+
+.cancelButton,
+
+.saveButton{
+
+    width:100%;
+
+}
+
+}

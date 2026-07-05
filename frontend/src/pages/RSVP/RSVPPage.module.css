@@ -1,0 +1,135 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+RSVPPage.module.css
+
+Description:
+Main layout of the RSVP Page.
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+/* ====================================================== */
+/* PAGE */
+/* ====================================================== */
+
+.page{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:80px 20px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #EEF4FA 0%,
+
+        #FFFFFF 100%
+
+    );
+
+}
+
+/* ====================================================== */
+/* BACKGROUND OVERLAY */
+/* ====================================================== */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(213,173,54,.08),
+
+        transparent 55%
+
+    );
+
+}
+
+/* ====================================================== */
+/* CONTENT */
+/* ====================================================== */
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+
+    max-width:900px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ====================================================== */
+/* TABLET */
+/* ====================================================== */
+
+@media (max-width:768px){
+
+.page{
+
+padding:60px 18px;
+
+}
+
+.container{
+
+max-width:100%;
+
+}
+
+}
+
+/* ====================================================== */
+/* MOBILE */
+/* ====================================================== */
+
+@media (max-width:480px){
+
+.page{
+
+padding:40px 14px;
+
+}
+
+}

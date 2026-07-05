@@ -1,0 +1,154 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Save Settings Button
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Container
+======================================================= */
+
+.container{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:32px;
+
+}
+
+/* =======================================================
+   Button
+======================================================= */
+
+.button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    min-width:220px;
+
+    height:54px;
+
+    padding:0 28px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        background .25s,
+        transform .25s,
+        box-shadow .25s;
+
+    box-shadow:
+        0 12px 28px rgba(11,42,97,.20);
+
+}
+
+.button:hover:not(:disabled){
+
+    background:#133A7A;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 16px 36px rgba(11,42,97,.25);
+
+}
+
+.button:active:not(:disabled){
+
+    transform:translateY(0);
+
+}
+
+.button:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+.button svg{
+
+    font-size:1.3rem;
+
+}
+
+/* =======================================================
+   Tablet
+======================================================= */
+
+@media(max-width:768px){
+
+.container{
+
+    justify-content:center;
+
+}
+
+.button{
+
+    width:100%;
+
+    max-width:360px;
+
+}
+
+}
+
+/* =======================================================
+   Mobile
+======================================================= */
+
+@media(max-width:576px){
+
+.container{
+
+    margin-top:24px;
+
+}
+
+.button{
+
+    width:100%;
+
+    min-width:100%;
+
+    height:50px;
+
+    font-size:.95rem;
+
+}
+
+}

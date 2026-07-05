@@ -1,0 +1,199 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+RSVP Table
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+/* =======================================================
+   Wrapper
+======================================================= */
+
+.wrapper{
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    border:1px solid #E5E7EB;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+
+    overflow-x:auto;
+
+}
+
+/* =======================================================
+   Table
+======================================================= */
+
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:900px;
+
+}
+
+/* =======================================================
+   Header
+======================================================= */
+
+.table thead{
+
+    background:#F8FAFC;
+
+}
+
+.table th{
+
+    padding:20px;
+
+    text-align:left;
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    color:#0B2A61;
+
+    border-bottom:1px solid #E5E7EB;
+
+    white-space:nowrap;
+
+}
+
+/* =======================================================
+   Body
+======================================================= */
+
+.table tbody{
+
+    background:#FFFFFF;
+
+}
+
+/* =======================================================
+   Loading
+======================================================= */
+
+.loading{
+
+    padding:70px;
+
+    text-align:center;
+
+    color:#64748B;
+
+    font-size:1rem;
+
+}
+
+/* =======================================================
+   Empty State
+======================================================= */
+
+.empty{
+
+    padding:70px 40px;
+
+    text-align:center;
+
+}
+
+.empty h3{
+
+    margin:0;
+
+    color:#0B2A61;
+
+    font-size:1.35rem;
+
+}
+
+.empty p{
+
+    margin-top:14px;
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    max-width:520px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+/* =======================================================
+   Scrollbar
+======================================================= */
+
+.wrapper::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.wrapper::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:999px;
+
+}
+
+.wrapper::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* =======================================================
+   Responsive
+======================================================= */
+
+@media(max-width:992px){
+
+.table{
+
+    min-width:850px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.wrapper{
+
+    border-radius:16px;
+
+}
+
+.loading{
+
+    padding:50px 20px;
+
+}
+
+.empty{
+
+    padding:50px 20px;
+
+}
+
+}

@@ -1,0 +1,209 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+System Information Card
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+.card{
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    border:1px solid #EEF2F7;
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.06);
+
+    margin-bottom:28px;
+
+}
+
+.header{
+
+    margin-bottom:24px;
+
+}
+
+.header h2{
+
+    margin:0;
+
+    color:#0B2A61;
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+}
+
+.header p{
+
+    margin-top:8px;
+
+    color:#64748B;
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:18px;
+
+}
+
+.item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    border:1px solid #EEF2F7;
+
+    background:#F8FAFC;
+
+    transition:.25s;
+
+}
+
+.item:hover{
+
+    background:#F1F5F9;
+
+}
+
+.icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.icon svg{
+
+    font-size:1.35rem;
+
+}
+
+.info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.info label{
+
+    color:#64748B;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+}
+
+.info span{
+
+    color:#0F172A;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    word-break:break-word;
+
+}
+
+@media(max-width:768px){
+
+.grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.card{
+
+    padding:22px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.card{
+
+    padding:18px;
+
+}
+
+.item{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.icon{
+
+    width:46px;
+
+    height:46px;
+
+}
+
+.icon svg{
+
+    font-size:1.2rem;
+
+}
+
+}

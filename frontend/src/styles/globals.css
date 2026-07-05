@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+
+  --color-navy:
+    #0B1F3A;
+
+  --color-gold:
+    #D4AF37;
+
+  --color-white:
+    #FFFFFF;
+
+  --color-background:
+    #F8F8F8;
+
+  --color-text:
+    #1F2937;
+
+  --radius:
+    20px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:
+  "Poppins",
+  sans-serif;
+
+  background:
+  var(--color-background);
+
+  color:
+  var(--color-text);
+
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4,h5{
+
+  font-family:
+  "Playfair Display",
+  serif;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+
+  font-family:inherit;
+
+  cursor:pointer;
+}
+
+img{
+
+  display:block;
+
+  max-width:100%;
+}

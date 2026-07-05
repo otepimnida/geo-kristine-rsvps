@@ -1,0 +1,175 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+GuestCounter.module.css
+
+Description:
+Wedding Guest Counter Styles
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+/* ========================================== */
+
+.label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#0B2A61;
+
+}
+
+/* ========================================== */
+
+.counter{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border:1px solid #D7DCE5;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    height:58px;
+
+    background:#FFFFFF;
+
+    transition:.25s;
+
+}
+
+.counter:hover{
+
+    border-color:#D5AD36;
+
+}
+
+/* ========================================== */
+
+.counter button{
+
+    width:60px;
+
+    height:100%;
+
+    border:none;
+
+    background:#F8FAFC;
+
+    font-size:26px;
+
+    color:#0B2A61;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.counter button:hover:not(:disabled){
+
+    background:#0B2A61;
+
+    color:#FFFFFF;
+
+}
+
+.counter button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+/* ========================================== */
+
+.value{
+
+    flex:1;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:#374151;
+
+}
+
+/* ========================================== */
+
+.note{
+
+    color:#6B7280;
+
+    font-size:.82rem;
+
+}
+
+/* ========================================== */
+
+.error{
+
+    color:#DC2626;
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+}
+
+/* ========================================== */
+
+.disabled{
+
+    opacity:.65;
+
+    background:#F9FAFB;
+
+}
+
+/* ========================================== */
+
+@media(max-width:480px){
+
+.counter{
+
+height:54px;
+
+}
+
+.counter button{
+
+width:56px;
+
+font-size:24px;
+
+}
+
+}

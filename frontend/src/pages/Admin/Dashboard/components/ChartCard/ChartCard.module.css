@@ -1,0 +1,112 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+Reusable Dashboard Chart Card
+
+Author:
+OpenAI + Otep
+
+Version:
+1.0.0
+==========================================================
+*/
+
+.card{
+
+    background:#FFFFFF;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,.05);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+.title{
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    color:#0B2A61;
+
+}
+
+.subtitle{
+
+    margin-top:6px;
+
+    color:#64748B;
+
+    line-height:1.6;
+
+    font-size:.92rem;
+
+}
+
+.actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.body{
+
+    width:100%;
+
+    min-height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+@media(max-width:768px){
+
+.card{
+
+padding:22px;
+
+}
+
+.header{
+
+flex-direction:column;
+
+}
+
+.body{
+
+min-height:250px;
+
+}
+
+}

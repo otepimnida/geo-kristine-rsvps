@@ -1,0 +1,165 @@
+/**
+==========================================================
+Geo & Kristine RSVP System
+----------------------------------------------------------
+File:
+MessageField.module.css
+
+Description:
+Wedding Wishes Textarea
+
+Author:
+OpenAI + Otep
+
+Version:
+2.0.0
+==========================================================
+*/
+
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+/* ========================================== */
+
+.label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#0B2A61;
+
+}
+
+/* ========================================== */
+
+.textarea{
+
+    width:100%;
+
+    resize:vertical;
+
+    min-height:140px;
+
+    padding:16px 18px;
+
+    border:1px solid #D7DCE5;
+
+    border-radius:16px;
+
+    background:#FFFFFF;
+
+    font-size:.95rem;
+
+    font-family:inherit;
+
+    color:#374151;
+
+    transition:
+
+        border-color .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+.textarea::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.textarea:hover{
+
+    border-color:#D5AD36;
+
+}
+
+.textarea:focus{
+
+    outline:none;
+
+    border-color:#0B2A61;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(11,42,97,.08);
+
+}
+
+/* ========================================== */
+
+.errorInput{
+
+    border-color:#DC2626;
+
+}
+
+.errorInput:focus{
+
+    border-color:#DC2626;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(220,38,38,.10);
+
+}
+
+/* ========================================== */
+
+.footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    min-height:20px;
+
+}
+
+/* ========================================== */
+
+.counter{
+
+    color:#6B7280;
+
+    font-size:.80rem;
+
+}
+
+.error{
+
+    color:#DC2626;
+
+    font-size:.80rem;
+
+    font-weight:500;
+
+}
+
+/* ========================================== */
+
+@media(max-width:480px){
+
+.textarea{
+
+min-height:120px;
+
+padding:14px 16px;
+
+}
+
+}
