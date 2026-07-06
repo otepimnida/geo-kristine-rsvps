@@ -132,53 +132,6 @@ export const deleteRSVP =
 |--------------------------------------------------------------------------
 */
 
-/**
- * Normalize backend data
- * for the frontend.
- */
-
-export const normalizeRSVP = (
-  guest
-) => ({
-  id: guest.id,
-
-  fullName:
-    guest.full_name,
-
-  email: guest.email,
-
-  attendance:
-    guest.attendance,
-
-  status: guest.attendance
-    ? "Attending"
-    : "Declined",
-
-  totalGuests:
-    Number(
-      guest.guest_count || 0
-    ),
-
-  guestCount:
-    Number(
-      guest.guest_count || 0
-    ),
-
-  message:
-    guest.message || "",
-
-  createdAt:
-    new Date(
-      guest.created_at
-    ).toLocaleDateString(
-      "en-US",
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }
-    ),
-});
 
 /**
  * Calculate Dashboard Statistics
