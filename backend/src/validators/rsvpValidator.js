@@ -87,4 +87,6 @@ const rsvpValidator = [
 
 ];
 
-module.exports = rsvpValidator;
+module.exports = {
+  rsvpValidator,
+};
