@@ -187,41 +187,30 @@ export const normalizeRSVP = (
 export const calculateStatistics = (
   rsvps = []
 ) => {
+
   const totalRSVPs =
     rsvps.length;
 
   const attending =
     rsvps.filter(
       (guest) =>
-        guest.attendance === true
+        guest.attendance
     ).length;
 
   const declined =
     rsvps.filter(
       (guest) =>
-        guest.attendance === false
+        !guest.attendance
     ).length;
 
-  const totalGuests =
-    rsvps.reduce(
-      (
-        total,
-        guest
-      ) =>
-        total +
-        Number(
-          guest.guest_count || 0
-        ),
-      0
-    );
-
   return {
+
     totalRSVPs,
 
     attending,
 
     declined,
 
-    totalGuests,
   };
+
 };

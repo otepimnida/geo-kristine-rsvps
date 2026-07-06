@@ -17,14 +17,13 @@
  * OpenAI + Otep
  *
  * Version:
- * 1.0.0
+ * 2.0.0
  * ==========================================================
  */
 
 import {
   HiOutlineXMark,
   HiEnvelope,
-  HiUsers,
   HiCalendarDays,
   HiChatBubbleLeftRight,
 } from "react-icons/hi2";
@@ -38,31 +37,42 @@ const RSVPDetailsDrawer = ({
   guest,
   onClose,
 }) => {
+
   if (!open || !guest) {
     return null;
   }
 
   return (
     <>
-      {/* Overlay */}
+      {/* ======================================
+          Overlay
+      ====================================== */}
 
       <div
         className={styles.overlay}
         onClick={onClose}
       />
 
-      {/* Drawer */}
+      {/* ======================================
+          Drawer
+      ====================================== */}
 
       <aside className={styles.drawer}>
+
         {/* Header */}
 
         <header className={styles.header}>
+
           <div>
-            <h2>RSVP Details</h2>
+
+            <h2>
+              RSVP Details
+            </h2>
 
             <p>
               Guest Information
             </p>
+
           </div>
 
           <button
@@ -72,12 +82,19 @@ const RSVPDetailsDrawer = ({
           >
             <HiOutlineXMark />
           </button>
+
         </header>
 
-        {/* Body */}
+        {/* ======================================
+            Body
+        ====================================== */}
 
         <section className={styles.body}>
+
+          {/* Full Name */}
+
           <div className={styles.card}>
+
             <label>
               Full Name
             </label>
@@ -85,21 +102,31 @@ const RSVPDetailsDrawer = ({
             <span>
               {guest.fullName}
             </span>
+
           </div>
 
+          {/* Email */}
+
           <div className={styles.card}>
+
             <label>
+
               <HiEnvelope />
 
               Email
+
             </label>
 
             <span>
               {guest.email}
             </span>
+
           </div>
 
+          {/* Attendance */}
+
           <div className={styles.card}>
+
             <label>
               Attendance
             </label>
@@ -107,59 +134,71 @@ const RSVPDetailsDrawer = ({
             <RSVPStatusBadge
               status={guest.status}
             />
+
           </div>
 
-          <div className={styles.card}>
-            <label>
-              <HiUsers />
-
-              Guests
-            </label>
-
-            <span>
-              {guest.totalGuests}
-            </span>
-          </div>
+          {/* Personal Message */}
 
           <div className={styles.card}>
+
             <label>
+
               <HiChatBubbleLeftRight />
 
               Message
+
             </label>
 
             <p>
+
               {guest.message ||
                 "No message provided."}
+
             </p>
+
           </div>
 
+          {/* Submitted */}
+
           <div className={styles.card}>
+
             <label>
+
               <HiCalendarDays />
 
               Submitted
+
             </label>
 
             <span>
+
               {guest.createdAt}
+
             </span>
+
           </div>
+
         </section>
 
-        {/* Footer */}
+        {/* ======================================
+            Footer
+        ====================================== */}
 
         <footer className={styles.footer}>
+
           <button
             type="button"
             onClick={onClose}
           >
             Close
           </button>
+
         </footer>
+
       </aside>
     </>
   );
+
 };
 
 export default RSVPDetailsDrawer;

@@ -44,7 +44,6 @@ const INITIAL_FORM = {
   fullName: "",
   email: "",
   attendance: true,
-  totalGuests: 1,
   message: "",
 };
 
@@ -79,21 +78,11 @@ const EditRSVPModal = ({
     if (!guest) return;
 
     setFormData({
-      fullName:
-        guest.fullName || "",
-
-      email:
-        guest.email || "",
-
-      attendance:
-        guest.attendance,
-
-      totalGuests:
-        guest.totalGuests || 1,
-
-      message:
-        guest.message || "",
-    });
+    fullName: guest.fullName || "",
+    email: guest.email || "",
+    attendance: guest.attendance,
+    message: guest.message || "",
+  });
 
     setErrors({});
   }, [guest]);
@@ -153,14 +142,6 @@ const EditRSVPModal = ({
         "Email is required.";
     }
 
-    if (
-      Number(
-        formData.totalGuests
-      ) < 1
-    ) {
-      validationErrors.totalGuests =
-        "Guest count must be at least 1.";
-    }
 
     setErrors(validationErrors);
 
@@ -188,24 +169,12 @@ const EditRSVPModal = ({
       try {
         setLoading(true);
 
-        const payload = {
-          full_name:
-            formData.fullName,
-
-          email:
-            formData.email,
-
-          attendance:
-            formData.attendance,
-
-          guest_count:
-            Number(
-              formData.totalGuests
-            ),
-
-          message:
-            formData.message,
-                    };
+      const payload = {
+        full_name: formData.fullName,
+        email: formData.email,
+        attendance: formData.attendance,
+        message: formData.message,
+      };
 
         await updateRSVP(
           guest.id,
@@ -383,32 +352,6 @@ const EditRSVPModal = ({
               </option>
 
             </select>
-
-          </div>
-
-          {/* Guest Count */}
-
-          <div className={styles.group}>
-
-            <label>
-              Guest Count
-            </label>
-
-            <input
-              type="number"
-              min="1"
-              name="totalGuests"
-              value={
-                formData.totalGuests
-              }
-              onChange={handleChange}
-            />
-
-            {errors.totalGuests && (
-              <small>
-                {errors.totalGuests}
-              </small>
-            )}
 
           </div>
 

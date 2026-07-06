@@ -8,11 +8,18 @@
  * Description:
  * Main RSVP Form Card
  *
+ * Responsibilities:
+ * - Display RSVP Form
+ * - Handle Form Submission
+ * - Collect Guest Information
+ * - Attendance Selection
+ * - Wedding Wishes
+ *
  * Author:
  * OpenAI + Otep
  *
  * Version:
- * 2.0.0
+ * 3.0.0
  * ==========================================================
  */
 
@@ -20,7 +27,6 @@ import styles from "./RSVPCard.module.css";
 
 import RSVPInput from "../RSVPInput/RSVPInput";
 import AttendanceSelector from "../AttendanceSelector/AttendanceSelector";
-import GuestCounter from "../GuestCounter/GuestCounter";
 import MessageField from "../MessageField/MessageField";
 import SubmitButton from "../SubmitButton/SubmitButton";
 
@@ -32,16 +38,13 @@ const RSVPCard = ({
   handleChange,
   handleAttendance,
 
-  incrementGuest,
-  decrementGuest,
-
   handleSubmit,
 }) => {
   return (
     <section className={styles.card}>
-      {/* ========================================== */}
-      {/* Header */}
-      {/* ========================================== */}
+      {/* ==========================================
+          Header
+      ========================================== */}
 
       <header className={styles.header}>
         <p className={styles.overline}>
@@ -59,15 +62,17 @@ const RSVPCard = ({
         </p>
       </header>
 
-      {/* ========================================== */}
-      {/* Form */}
-      {/* ========================================== */}
+      {/* ==========================================
+          RSVP Form
+      ========================================== */}
 
       <form
         className={styles.form}
         onSubmit={handleSubmit}
       >
-        {/* Name */}
+        {/* ==========================
+            Full Name
+        ========================== */}
 
         <RSVPInput
           label="Full Name"
@@ -79,7 +84,9 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* Email */}
+        {/* ==========================
+            Email Address
+        ========================== */}
 
         <RSVPInput
           label="Email Address"
@@ -92,7 +99,9 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* Attendance */}
+        {/* ==========================
+            Attendance
+        ========================== */}
 
         <AttendanceSelector
           value={formData.attendance}
@@ -100,17 +109,9 @@ const RSVPCard = ({
           onChange={handleAttendance}
         />
 
-        {/* Guest Counter */}
-
-        <GuestCounter
-          value={formData.guest_count}
-          disabled={!formData.attendance}
-          incrementGuest={incrementGuest}
-          decrementGuest={decrementGuest}
-          error={errors.guest_count}
-        />
-
-        {/* Message */}
+        {/* ==========================
+            Wedding Wishes
+        ========================== */}
 
         <MessageField
           value={formData.message}
@@ -118,7 +119,9 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* Submit */}
+        {/* ==========================
+            Submit
+        ========================== */}
 
         <SubmitButton
           loading={loading}

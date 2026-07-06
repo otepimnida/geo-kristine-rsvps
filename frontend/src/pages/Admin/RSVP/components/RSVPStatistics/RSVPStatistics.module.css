@@ -2,22 +2,209 @@
 ==========================================================
 Geo & Kristine RSVP System
 ----------------------------------------------------------
-RSVP Statistics
+File:
+RSVPStatistics.module.css
+
+Description:
+RSVP Statistics Styling
 
 Author:
 OpenAI + Otep
 
 Version:
-1.0.0
+3.0.0
 ==========================================================
 */
 
-/*
-This component intentionally has no
-custom styles.
+/* ==========================================
+   Statistics Grid
+========================================== */
 
-It reuses the Dashboard
-StatisticsGrid component to
-maintain a consistent UI
-throughout the Admin Panel.
-*/
+.grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(240px, 1fr)
+    );
+
+  gap: 1.5rem;
+
+  margin-bottom: 2rem;
+
+}
+
+/* ==========================================
+   Statistic Card
+========================================== */
+
+.card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1.5rem;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  border: 1px solid #ececec;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.06);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+}
+
+.card:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.10);
+
+}
+
+/* ==========================================
+   Icon
+========================================== */
+
+.icon {
+
+  width: 62px;
+
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 16px;
+
+  font-size: 1.8rem;
+
+  color: white;
+
+  flex-shrink: 0;
+
+}
+
+/* ==========================================
+   Content
+========================================== */
+
+.content {
+
+  flex: 1;
+
+}
+
+.content h3 {
+
+  margin: 0;
+
+  font-size: .92rem;
+
+  font-weight: 600;
+
+  color: #6b7280;
+
+}
+
+.content h2 {
+
+  margin-top: .45rem;
+
+  margin-bottom: 0;
+
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #1f2937;
+
+}
+
+/* ==========================================
+   Card Colors
+========================================== */
+
+.total .icon {
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #4f46e5
+    );
+
+}
+
+.attending .icon {
+
+  background:
+    linear-gradient(
+      135deg,
+      #10b981,
+      #059669
+    );
+
+}
+
+.declined .icon {
+
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #dc2626
+    );
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+
+  .grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .card {
+
+    padding: 1.25rem;
+
+  }
+
+  .icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    font-size: 1.6rem;
+
+  }
+
+  .content h2 {
+
+    font-size: 1.7rem;
+
+  }
+
+}

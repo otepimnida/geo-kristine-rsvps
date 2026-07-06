@@ -18,7 +18,7 @@
  * OpenAI + Otep
  *
  * Version:
- * 4.0.0
+ * 5.0.0
  * ==========================================================
  */
 
@@ -38,6 +38,7 @@ const RSVPRow = ({
   onEdit,
   onDelete,
 }) => {
+
   /*
   |--------------------------------------------------------------------------
   | Actions
@@ -45,87 +46,101 @@ const RSVPRow = ({
   */
 
   const handleView = () => {
+
     if (onView) {
+
       onView(guest);
+
     }
+
   };
 
   const handleEdit = () => {
+
     if (onEdit) {
+
       onEdit(guest);
+
     }
+
   };
 
   const handleDelete = () => {
+
     if (onDelete) {
+
       onDelete(guest);
+
     }
+
   };
 
   return (
+
     <tr className={styles.row}>
-      {/* ==================================================
+
+      {/* ==========================================
           Guest
-      ================================================== */}
+      ========================================== */}
 
       <td>
+
         <div className={styles.guest}>
+
           <span className={styles.name}>
+
             {guest.fullName}
+
           </span>
 
-          <span className={styles.email}>
-            {guest.email}
-          </span>
         </div>
+
       </td>
 
-      {/* ==================================================
+      {/* ==========================================
+          Contact
+      ========================================== */}
+
+      <td>
+
+        <span className={styles.email}>
+
+          {guest.email}
+
+        </span>
+
+      </td>
+
+      {/* ==========================================
           Attendance
-      ================================================== */}
+      ========================================== */}
 
       <td className={styles.center}>
+
         <RSVPStatusBadge
           status={guest.status}
         />
+
       </td>
 
-      {/* ==================================================
-          Guest Count
-      ================================================== */}
+      {/* ==========================================
+          Submitted
+      ========================================== */}
 
       <td className={styles.center}>
-        {guest.totalGuests}
-      </td>
 
-      {/* ==================================================
-          Message
-      ================================================== */}
-
-      <td className={styles.message}>
-        {guest.message ? (
-          guest.message
-        ) : (
-          <span className={styles.empty}>
-            —
-          </span>
-        )}
-      </td>
-
-      {/* ==================================================
-          Date Submitted
-      ================================================== */}
-
-      <td className={styles.center}>
         {guest.createdAt}
+
       </td>
 
-      {/* ==================================================
+      {/* ==========================================
           Actions
-      ================================================== */}
+      ========================================== */}
 
       <td>
+
         <div className={styles.actions}>
+
           {/* View */}
 
           <button
@@ -135,7 +150,9 @@ const RSVPRow = ({
             title="View RSVP"
             aria-label="View RSVP"
           >
+
             <HiEye />
+
           </button>
 
           {/* Edit */}
@@ -147,7 +164,9 @@ const RSVPRow = ({
             title="Edit RSVP"
             aria-label="Edit RSVP"
           >
+
             <HiPencilSquare />
+
           </button>
 
           {/* Delete */}
@@ -159,12 +178,19 @@ const RSVPRow = ({
             title="Delete RSVP"
             aria-label="Delete RSVP"
           >
+
             <HiTrash />
+
           </button>
+
         </div>
+
       </td>
+
     </tr>
+
   );
+
 };
 
 export default RSVPRow;

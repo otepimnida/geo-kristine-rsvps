@@ -17,7 +17,7 @@
  * OpenAI + Otep
  *
  * Version:
- * 2.0.0
+ * 3.0.0
  * ==========================================================
  */
 
@@ -28,41 +28,79 @@ import { RSVPCard } from "./components";
 import useRSVPForm from "../../hooks/forms/useRSVPForm";
 
 const RSVPPage = () => {
+
+  /*
+  |--------------------------------------------------------------------------
+  | RSVP Hook
+  |--------------------------------------------------------------------------
+  */
+
   const {
+
     formData,
+
     errors,
+
     loading,
+
     handleChange,
+
     handleAttendance,
-    incrementGuest,
-    decrementGuest,
+
     submitForm,
+
   } = useRSVPForm();
 
+  /*
+  |--------------------------------------------------------------------------
+  | Submit
+  |--------------------------------------------------------------------------
+  */
+
   const handleSubmit = async (event) => {
+
     event.preventDefault();
 
     await submitForm();
+
   };
 
+  /*
+  |--------------------------------------------------------------------------
+  | Render
+  |--------------------------------------------------------------------------
+  */
+
   return (
+
     <main className={styles.page}>
+
       <div className={styles.overlay} />
 
       <section className={styles.container}>
+
         <RSVPCard
+
           formData={formData}
+
           errors={errors}
+
           loading={loading}
+
           handleChange={handleChange}
+
           handleAttendance={handleAttendance}
-          incrementGuest={incrementGuest}
-          decrementGuest={decrementGuest}
+
           handleSubmit={handleSubmit}
+
         />
+
       </section>
+
     </main>
+
   );
+
 };
 
 export default RSVPPage;

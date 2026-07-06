@@ -22,7 +22,7 @@
  * OpenAI + Otep
  *
  * Version:
- * 3.0.0
+ * 4.0.0
  * ==========================================================
  */
 
@@ -48,6 +48,7 @@ import {
 */
 
 const useRSVP = () => {
+
   /*
   |--------------------------------------------------------------------------
   | States
@@ -59,10 +60,13 @@ const useRSVP = () => {
 
   const [statistics, setStatistics] =
     useState({
+
       totalRSVPs: 0,
+
       attending: 0,
+
       declined: 0,
-      totalGuests: 0,
+
     });
 
   const [loading, setLoading] =
@@ -99,7 +103,9 @@ const useRSVP = () => {
 
   const loadRSVPs =
     useCallback(async () => {
+
       try {
+
         setLoading(true);
 
         setError("");
@@ -114,25 +120,48 @@ const useRSVP = () => {
 
         setGuests(normalized);
 
-        setStatistics(
-          calculateStatistics(
-            records
-          )
-        );
+        /*
+        |--------------------------------------------------------------------------
+        | Statistics
+        |--------------------------------------------------------------------------
+        */
+
+        const stats =
+          calculateStatistics(records);
+
+        setStatistics({
+
+          totalRSVPs:
+            stats.totalRSVPs,
+
+          attending:
+            stats.attending,
+
+          declined:
+            stats.declined,
+
+        });
+
       } catch (err) {
+
         console.error(err);
 
         const message =
-          err.response?.data
-            ?.message ||
+
+          err.response?.data?.message ||
+
           "Unable to load RSVP records.";
 
         setError(message);
 
         toast.error(message);
+
       } finally {
+
         setLoading(false);
+
       }
+
     }, []);
 
   /*
@@ -143,17 +172,20 @@ const useRSVP = () => {
 
   const refresh =
     useCallback(async () => {
+
       await loadRSVPs();
+
     }, [loadRSVPs]);
 
   /*
   |--------------------------------------------------------------------------
-  | Filtered Guests
+  | Filter Guests
   |--------------------------------------------------------------------------
   */
 
   const filteredGuests =
     useMemo(() => {
+
       let filtered = [...guests];
 
       /*
@@ -163,6 +195,7 @@ const useRSVP = () => {
       */
 
       if (search.trim()) {
+
         const keyword =
           search
             .trim()
@@ -171,13 +204,19 @@ const useRSVP = () => {
         filtered =
           filtered.filter(
             (guest) =>
+
               guest.fullName
                 .toLowerCase()
-                .includes(keyword) ||
+                .includes(keyword)
+
+              ||
+
               guest.email
                 .toLowerCase()
                 .includes(keyword)
+
           );
+
       }
 
       /*
@@ -189,19 +228,28 @@ const useRSVP = () => {
       if (
         statusFilter !== "All"
       ) {
+
         filtered =
           filtered.filter(
             (guest) =>
+
               guest.status ===
               statusFilter
+
           );
+
       }
 
       return filtered;
+
     }, [
+
       guests,
+
       search,
+
       statusFilter,
+
     ]);
 
   /*
@@ -211,7 +259,9 @@ const useRSVP = () => {
   */
 
   useEffect(() => {
+
     loadRSVPs();
+
   }, [loadRSVPs]);
 
   /*
@@ -221,6 +271,7 @@ const useRSVP = () => {
   */
 
   return {
+
     guests,
 
     filteredGuests,
@@ -240,7 +291,9 @@ const useRSVP = () => {
     statusFilter,
 
     setStatusFilter,
+
   };
+
 };
 
 export default useRSVP;
