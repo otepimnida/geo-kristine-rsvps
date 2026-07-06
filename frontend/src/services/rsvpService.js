@@ -27,7 +27,7 @@
  * OpenAI + Otep
  *
  * Version:
- * 3.0.0
+ * 4.0.0
  * ==========================================================
  */
 
@@ -132,38 +132,73 @@ export const deleteRSVP =
 |--------------------------------------------------------------------------
 */
 
+/**
+ * Normalize Backend Data
+ *
+ * Converts backend response
+ * into frontend-friendly format.
+ */
+
+export const normalizeRSVP = (
+  guest
+) => ({
+  id: guest.id,
+
+  fullName:
+    guest.full_name,
+
+  email:
+    guest.email,
+
+  attendance:
+    guest.attendance,
+
+  status:
+    guest.attendance
+      ? "Attending"
+      : "Declined",
+
+  message:
+    guest.message || "",
+
+  createdAt:
+    new Date(
+      guest.created_at
+    ).toLocaleDateString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
+    ),
+});
 
 /**
- * Calculate Dashboard Statistics
+ * Dashboard Statistics
  */
 
 export const calculateStatistics = (
   rsvps = []
 ) => {
-
   const totalRSVPs =
     rsvps.length;
 
   const attending =
     rsvps.filter(
       (guest) =>
-        guest.attendance
+        guest.attendance === true
     ).length;
 
   const declined =
     rsvps.filter(
       (guest) =>
-        !guest.attendance
+        guest.attendance === false
     ).length;
 
   return {
-
     totalRSVPs,
-
     attending,
-
     declined,
-
   };
-
 };
