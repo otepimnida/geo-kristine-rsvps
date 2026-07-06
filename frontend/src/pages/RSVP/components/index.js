@@ -22,8 +22,6 @@ export { default as RSVPInput } from "./RSVPInput/RSVPInput";
 
 export { default as AttendanceSelector } from "./AttendanceSelector/AttendanceSelector";
 
-export { default as GuestCounter } from "./GuestCounter/GuestCounter";
-
 export { default as MessageField } from "./MessageField/MessageField";
 
 export { default as SubmitButton } from "./SubmitButton/SubmitButton";

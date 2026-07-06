@@ -8,6 +8,11 @@ const {
 
 const rsvpService = require("../services/rsvpService");
 
+console.log("=================================");
+console.log("RSVP SERVICE:");
+console.log(rsvpService);
+console.log("=================================");
+
 /*
 |--------------------------------------------------------------------------
 | Public RSVP
