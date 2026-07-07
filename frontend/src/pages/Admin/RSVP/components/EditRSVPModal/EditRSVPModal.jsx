@@ -19,7 +19,7 @@
  * OpenAI + Otep
  *
  * Version:
- * 1.0.0
+ * 2.1.0
  * ==========================================================
  */
 
@@ -43,6 +43,7 @@ import styles from "./EditRSVPModal.module.css";
 const INITIAL_FORM = {
   fullName: "",
   email: "",
+  contactNumber: "",
   attendance: true,
   message: "",
 };
@@ -78,11 +79,21 @@ const EditRSVPModal = ({
     if (!guest) return;
 
     setFormData({
-    fullName: guest.fullName || "",
-    email: guest.email || "",
-    attendance: guest.attendance,
-    message: guest.message || "",
-  });
+      fullName:
+        guest.fullName || "",
+
+      email:
+        guest.email || "",
+
+      contactNumber:
+        guest.contactNumber || "",
+
+      attendance:
+        guest.attendance,
+
+      message:
+        guest.message || "",
+    });
 
     setErrors({});
   }, [guest]);
@@ -114,7 +125,6 @@ const EditRSVPModal = ({
 
     setErrors((previous) => ({
       ...previous,
-
       [name]: "",
     }));
   };
@@ -142,6 +152,22 @@ const EditRSVPModal = ({
         "Email is required.";
     }
 
+    const phoneRegex =
+      /^(\+63|0)9\d{9}$/;
+
+    if (
+      !formData.contactNumber.trim()
+    ) {
+      validationErrors.contactNumber =
+        "Contact number is required.";
+    } else if (
+      !phoneRegex.test(
+        formData.contactNumber.trim()
+      )
+    ) {
+      validationErrors.contactNumber =
+        "Please enter a valid Philippine mobile number.";
+    }
 
     setErrors(validationErrors);
 
@@ -169,12 +195,22 @@ const EditRSVPModal = ({
       try {
         setLoading(true);
 
-      const payload = {
-        full_name: formData.fullName,
-        email: formData.email,
-        attendance: formData.attendance,
-        message: formData.message,
-      };
+        const payload = {
+          full_name:
+            formData.fullName,
+
+          email:
+            formData.email,
+
+          contact_number:
+            formData.contactNumber,
+
+          attendance:
+            formData.attendance,
+
+          message:
+            formData.message,
+        };
 
         await updateRSVP(
           guest.id,
@@ -233,9 +269,7 @@ const EditRSVPModal = ({
 
       <div className={styles.modal}>
 
-        {/* =======================================
-            Header
-        ======================================= */}
+        {/* Header */}
 
         <div className={styles.header}>
 
@@ -260,9 +294,7 @@ const EditRSVPModal = ({
 
         </div>
 
-        {/* =======================================
-            Form
-        ======================================= */}
+        {/* Form */}
 
         <form
           onSubmit={handleSubmit}
@@ -315,6 +347,30 @@ const EditRSVPModal = ({
 
           </div>
 
+          {/* Contact Number */}
+
+          <div className={styles.group}>
+
+            <label>
+              Contact Number
+            </label>
+
+            <input
+              type="tel"
+              name="contactNumber"
+              value={formData.contactNumber}
+              onChange={handleChange}
+              placeholder="09XXXXXXXXX"
+            />
+
+            {errors.contactNumber && (
+              <small>
+                {errors.contactNumber}
+              </small>
+            )}
+
+          </div>
+
           {/* Attendance */}
 
           <div className={styles.group}>
@@ -355,9 +411,7 @@ const EditRSVPModal = ({
 
           </div>
 
-                    {/* =======================================
-              Personal Message
-          ======================================= */}
+          {/* Message */}
 
           <div className={styles.group}>
 
@@ -375,9 +429,7 @@ const EditRSVPModal = ({
 
           </div>
 
-          {/* =======================================
-              Footer
-          ======================================= */}
+          {/* Footer */}
 
           <div className={styles.footer}>
 

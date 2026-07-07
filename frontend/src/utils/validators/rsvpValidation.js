@@ -6,32 +6,58 @@
  * rsvpValidation.js
  *
  * Description:
- * Frontend RSVP Validation
+ * RSVP Form Validation
  *
- * Must remain synchronized with:
- * backend/src/validators/rsvpValidator.js
+ * Responsibilities:
+ * ----------------------------------------------------------
+ * - Full Name Validation
+ * - Email Validation
+ * - Contact Number Validation
+ * - Attendance Validation
+ * - Personal Message Validation
  *
  * Author:
  * OpenAI + Otep
  *
  * Version:
- * 2.0.0
+ * 3.0.0
  * ==========================================================
  */
 
-const EMAIL_PATTERN =
+/*
+|--------------------------------------------------------------------------
+| Philippine Mobile Number
+|--------------------------------------------------------------------------
+|
+| Accepted Formats:
+|
+| 09171234567
+| 09998887777
+| +639171234567
+|
+*/
+
+const PHONE_REGEX =
+  /^(\+63|0)9\d{9}$/;
+
+/*
+|--------------------------------------------------------------------------
+| Email
+|--------------------------------------------------------------------------
+*/
+
+const EMAIL_REGEX =
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /*
 |--------------------------------------------------------------------------
-| RSVP Validation
+| Validation
 |--------------------------------------------------------------------------
 */
 
 const validateRSVP = (
   formData
 ) => {
-
   const errors = {};
 
   /*
@@ -40,28 +66,25 @@ const validateRSVP = (
   |--------------------------------------------------------------------------
   */
 
-  const fullName =
-    formData.full_name.trim();
-
-  if (!fullName) {
-
+  if (
+    !formData.full_name?.trim()
+  ) {
     errors.full_name =
       "Full name is required.";
-
   } else if (
-    fullName.length < 3
+    formData.full_name
+      .trim()
+      .length < 2
   ) {
-
     errors.full_name =
-      "Full name must be at least 3 characters.";
-
+      "Full name must be at least 2 characters.";
   } else if (
-    fullName.length > 100
+    formData.full_name
+      .trim()
+      .length > 100
   ) {
-
     errors.full_name =
-      "Full name cannot exceed 100 characters.";
-
+      "Full name must not exceed 100 characters.";
   }
 
   /*
@@ -70,21 +93,38 @@ const validateRSVP = (
   |--------------------------------------------------------------------------
   */
 
-  const email =
-    formData.email.trim();
-
-  if (!email) {
-
+  if (
+    !formData.email?.trim()
+  ) {
     errors.email =
       "Email address is required.";
-
   } else if (
-    !EMAIL_PATTERN.test(email)
+    !EMAIL_REGEX.test(
+      formData.email.trim()
+    )
   ) {
-
     errors.email =
       "Please enter a valid email address.";
+  }
 
+  /*
+  |--------------------------------------------------------------------------
+  | Contact Number
+  |--------------------------------------------------------------------------
+  */
+
+  if (
+    !formData.contact_number?.trim()
+  ) {
+    errors.contact_number =
+      "Contact number is required.";
+  } else if (
+    !PHONE_REGEX.test(
+      formData.contact_number.trim()
+    )
+  ) {
+    errors.contact_number =
+      "Please enter a valid Philippine mobile number.";
   }
 
   /*
@@ -97,75 +137,26 @@ const validateRSVP = (
     typeof formData.attendance !==
     "boolean"
   ) {
-
     errors.attendance =
       "Please select your attendance.";
-
   }
 
   /*
   |--------------------------------------------------------------------------
-  | Guest Count
+  | Personal Message
   |--------------------------------------------------------------------------
   */
 
   if (
-    formData.attendance
-  ) {
-
-    const guests =
-      Number(
-        formData.guest_count
-      );
-
-    if (
-      Number.isNaN(guests)
-    ) {
-
-      errors.guest_count =
-        "Guest count is required.";
-
-    } else if (
-      guests < 1 ||
-      guests > 5
-    ) {
-
-      errors.guest_count =
-        "Guest count must be between 1 and 5.";
-
-    }
-
-  }
-
-  /*
-  |--------------------------------------------------------------------------
-  | Message
-  |--------------------------------------------------------------------------
-  */
-
-  if (
-
     formData.message &&
-
-    formData.message.length >
-
+    formData.message.trim().length >
       300
-
   ) {
-
     errors.message =
-      "Message cannot exceed 300 characters.";
-
+      "Wedding wishes must not exceed 300 characters.";
   }
-
-  /*
-  |--------------------------------------------------------------------------
-  | Return Errors
-  |--------------------------------------------------------------------------
-  */
 
   return errors;
-
 };
 
 export default validateRSVP;

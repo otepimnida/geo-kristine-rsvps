@@ -20,10 +20,11 @@ console.log("=================================");
 */
 
 const createRSVP = asyncHandler(async (req, res) => {
+
+  console.log(req.body);
+
   const result =
-    await rsvpService.createRSVP(
-      req.body
-    );
+    await rsvpService.createRSVP(req.body);
 
   return sendSuccess(
     res,

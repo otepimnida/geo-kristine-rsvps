@@ -55,6 +55,22 @@ const rsvpValidator = [
 
     .normalizeEmail(),
 
+  body("contact_number")
+
+    .trim()
+
+    .notEmpty()
+
+    .withMessage(
+      "Contact number is required."
+    )
+
+    .matches(/^(\+63|0)9\d{9}$/)
+
+    .withMessage(
+      "Please enter a valid Philippine mobile number."
+    ),
+
   body("attendance")
 
     .not()

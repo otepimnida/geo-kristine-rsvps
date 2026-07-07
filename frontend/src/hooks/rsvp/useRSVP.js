@@ -9,6 +9,7 @@
  * RSVP Management Hook
  *
  * Responsibilities:
+ * ----------------------------------------------------------
  * - Load RSVP Records
  * - Normalize Backend Data
  * - Compute Statistics
@@ -48,7 +49,6 @@ import {
 */
 
 const useRSVP = () => {
-
   /*
   |--------------------------------------------------------------------------
   | States
@@ -60,13 +60,9 @@ const useRSVP = () => {
 
   const [statistics, setStatistics] =
     useState({
-
       totalRSVPs: 0,
-
       attending: 0,
-
       declined: 0,
-
     });
 
   const [loading, setLoading] =
@@ -103,9 +99,7 @@ const useRSVP = () => {
 
   const loadRSVPs =
     useCallback(async () => {
-
       try {
-
         setLoading(true);
 
         setError("");
@@ -120,36 +114,19 @@ const useRSVP = () => {
 
         setGuests(normalized);
 
-        /*
-        |--------------------------------------------------------------------------
-        | Statistics
-        |--------------------------------------------------------------------------
-        */
-
-        const stats =
-          calculateStatistics(records);
-
-        setStatistics({
-
-          totalRSVPs:
-            stats.totalRSVPs,
-
-          attending:
-            stats.attending,
-
-          declined:
-            stats.declined,
-
-        });
+        setStatistics(
+          calculateStatistics(
+            records
+          )
+        );
 
       } catch (err) {
 
         console.error(err);
 
         const message =
-
-          err.response?.data?.message ||
-
+          err.response?.data
+            ?.message ||
           "Unable to load RSVP records.";
 
         setError(message);
@@ -161,7 +138,6 @@ const useRSVP = () => {
         setLoading(false);
 
       }
-
     }, []);
 
   /*
@@ -186,12 +162,13 @@ const useRSVP = () => {
   const filteredGuests =
     useMemo(() => {
 
-      let filtered = [...guests];
+      let filtered =
+        [...guests];
 
       /*
-      -----------------------------
+      ------------------------------------------
       Search
-      -----------------------------
+      ------------------------------------------
       */
 
       if (search.trim()) {
@@ -215,27 +192,31 @@ const useRSVP = () => {
                 .toLowerCase()
                 .includes(keyword)
 
+              ||
+
+              guest.contactNumber
+                ?.toLowerCase()
+                .includes(keyword)
           );
 
       }
 
       /*
-      -----------------------------
-      Status
-      -----------------------------
+      ------------------------------------------
+      Status Filter
+      ------------------------------------------
       */
 
       if (
-        statusFilter !== "All"
+        statusFilter !==
+        "All"
       ) {
 
         filtered =
           filtered.filter(
             (guest) =>
-
               guest.status ===
               statusFilter
-
           );
 
       }

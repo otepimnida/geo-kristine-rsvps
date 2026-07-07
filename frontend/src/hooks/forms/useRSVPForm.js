@@ -8,6 +8,18 @@
  * Description:
  * Centralized RSVP Form Hook
  *
+ * Responsibilities:
+ * - Form State
+ * - Validation
+ * - Attendance Logic
+ * - API Submission
+ * - Loading State
+ * - Toast Notifications
+ * - Reset Form
+ *
+ * Author:
+ * OpenAI + Otep
+ *
  * Version:
  * 3.0.0
  * ==========================================================
@@ -26,19 +38,14 @@ import { submitRSVP } from "../../services/rsvpService";
 */
 
 const INITIAL_FORM = {
-
   full_name: "",
-
   email: "",
-
+  contact_number: "",
   attendance: true,
-
   message: "",
-
 };
 
 const useRSVPForm = () => {
-
   /*
   |--------------------------------------------------------------------------
   | State
@@ -61,40 +68,32 @@ const useRSVPForm = () => {
   */
 
   const clearError = (field) => {
-
     if (!errors[field]) return;
 
     setErrors((previous) => ({
-
       ...previous,
-
       [field]: "",
-
     }));
-
   };
 
   /*
   |--------------------------------------------------------------------------
-  | Handle Inputs
+  | Handle Text Inputs
   |--------------------------------------------------------------------------
   */
 
   const handleChange = (event) => {
-
-    const { name, value } =
-      event.target;
+    const {
+      name,
+      value,
+    } = event.target;
 
     setFormData((previous) => ({
-
       ...previous,
-
       [name]: value,
-
     }));
 
     clearError(name);
-
   };
 
   /*
@@ -106,31 +105,24 @@ const useRSVPForm = () => {
   const handleAttendance = (
     attendance
   ) => {
-
     setFormData((previous) => ({
-
       ...previous,
-
       attendance,
-
     }));
 
     clearError("attendance");
-
   };
 
   /*
   |--------------------------------------------------------------------------
-  | Reset
+  | Reset Form
   |--------------------------------------------------------------------------
   */
 
   const resetForm = () => {
-
     setFormData(INITIAL_FORM);
 
     setErrors({});
-
   };
 
   /*
@@ -140,7 +132,6 @@ const useRSVPForm = () => {
   */
 
   const validate = () => {
-
     const validationErrors =
       validateRSVP(formData);
 
@@ -150,25 +141,20 @@ const useRSVPForm = () => {
       Object.keys(validationErrors)
         .length === 0
     );
-
   };
 
   /*
   |--------------------------------------------------------------------------
-  | Submit
+  | Submit Form
   |--------------------------------------------------------------------------
   */
 
   const submitForm = async () => {
-
     if (!validate()) {
-
       return false;
-
     }
 
     try {
-
       setLoading(true);
 
       await submitRSVP(formData);
@@ -180,25 +166,16 @@ const useRSVPForm = () => {
       resetForm();
 
       return true;
-
     } catch (error) {
-
       toast.error(
-
         error.response?.data?.message ||
-
-        "Unable to submit RSVP."
-
+          "Unable to submit RSVP."
       );
 
       return false;
-
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
   /*
@@ -208,7 +185,6 @@ const useRSVPForm = () => {
   */
 
   return {
-
     formData,
 
     errors,
@@ -222,9 +198,7 @@ const useRSVPForm = () => {
     submitForm,
 
     resetForm,
-
   };
-
 };
 
 export default useRSVPForm;

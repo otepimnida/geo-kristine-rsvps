@@ -108,31 +108,23 @@ const RSVPTable = ({
       <table className={styles.table}>
 
         <thead>
-
           <tr>
 
-            <th>
-              Guest
-            </th>
+            <th>Guest</th>
 
-            <th>
-              Contact
-            </th>
+            <th>Email</th>
 
-            <th>
-              Status
-            </th>
+            <th>Contact Number</th>
 
-            <th>
-              Submitted
-            </th>
+            <th>Status</th>
 
-            <th>
-              Actions
-            </th>
+            <th>Message</th>
+
+            <th>Submitted</th>
+
+            <th>Actions</th>
 
           </tr>
-
         </thead>
 
         <tbody>

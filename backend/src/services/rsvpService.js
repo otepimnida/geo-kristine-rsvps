@@ -27,6 +27,7 @@ const RSVP_COLUMNS = `
 id,
 full_name,
 email,
+contact_number,
 attendance,
 guest_count,
 message,
@@ -42,11 +43,34 @@ created_at
 const createRSVP = async (body) => {
   const payload = {
     full_name: body.full_name.trim(),
-    email: body.email.trim().toLowerCase(),
-    attendance: body.attendance,
+
+    email:
+      body.email.trim().toLowerCase(),
+
+    contact_number:
+      body.contact_number.trim(),
+
+    attendance:
+      body.attendance,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Guest Counter Removed
+    | Keep DB compatibility
+    |--------------------------------------------------------------------------
+    */
+
     guest_count: 1,
-    message: body.message?.trim() || "",
+
+    message:
+      body.message?.trim() || "",
   };
+
+  /*
+  |--------------------------------------------------------------------------
+  | Prevent Duplicate Email
+  |--------------------------------------------------------------------------
+  */
 
   const {
     data: existingRSVP,
@@ -71,7 +95,16 @@ const createRSVP = async (body) => {
     );
   }
 
-  const { data, error } = await supabase
+  /*
+  |--------------------------------------------------------------------------
+  | Insert RSVP
+  |--------------------------------------------------------------------------
+  */
+
+  const {
+    data,
+    error,
+  } = await supabase
     .from("rsvps")
     .insert(payload)
     .select(RSVP_COLUMNS)
@@ -94,7 +127,10 @@ const createRSVP = async (body) => {
 */
 
 const getAllRSVPs = async () => {
-  const { data, error } = await supabase
+  const {
+    data,
+    error,
+  } = await supabase
     .from("rsvps")
     .select(RSVP_COLUMNS)
     .order("created_at", {
@@ -118,7 +154,10 @@ const getAllRSVPs = async () => {
 */
 
 const getRSVPById = async (id) => {
-  const { data, error } = await supabase
+  const {
+    data,
+    error,
+  } = await supabase
     .from("rsvps")
     .select(RSVP_COLUMNS)
     .eq("id", id)
@@ -152,11 +191,23 @@ const updateRSVP = async (
   body,
   adminId
 ) => {
+  /*
+  |--------------------------------------------------------------------------
+  | Verify RSVP Exists
+  |--------------------------------------------------------------------------
+  */
+
   await getRSVPById(id);
 
   const email = body.email
     .trim()
     .toLowerCase();
+
+  /*
+  |--------------------------------------------------------------------------
+  | Prevent Duplicate Email
+  |--------------------------------------------------------------------------
+  */
 
   const {
     data: duplicate,
@@ -182,15 +233,46 @@ const updateRSVP = async (
     );
   }
 
+  /*
+  |--------------------------------------------------------------------------
+  | Update Payload
+  |--------------------------------------------------------------------------
+  */
+
   const payload = {
-    full_name: body.full_name.trim(),
+    full_name:
+      body.full_name.trim(),
+
     email,
-    attendance: body.attendance,
+
+    contact_number:
+      body.contact_number.trim(),
+
+    attendance:
+      body.attendance,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Guest Counter Removed
+    |--------------------------------------------------------------------------
+    */
+
     guest_count: 1,
-    message: body.message?.trim() || "",
+
+    message:
+      body.message?.trim() || "",
   };
 
-  const { data, error } = await supabase
+  /*
+  |--------------------------------------------------------------------------
+  | Update Database
+  |--------------------------------------------------------------------------
+  */
+
+  const {
+    data,
+    error,
+  } = await supabase
     .from("rsvps")
     .update(payload)
     .eq("id", id)
@@ -204,10 +286,20 @@ const updateRSVP = async (
     );
   }
 
+  /*
+  |--------------------------------------------------------------------------
+  | Activity Log
+  |--------------------------------------------------------------------------
+  */
+
   await logActivity({
     adminId,
-    action: ACTIVITY_ACTIONS.UPDATE_RSVP,
-    description: `Updated RSVP for ${data.full_name}.`,
+
+    action:
+      ACTIVITY_ACTIONS.UPDATE_RSVP,
+
+    description:
+      `Updated RSVP for ${data.full_name}.`,
   });
 
   return data;
@@ -223,12 +315,14 @@ const deleteRSVP = async (
   id,
   adminId
 ) => {
-  const rsvp = await getRSVPById(id);
+  const rsvp =
+    await getRSVPById(id);
 
-  const { error } = await supabase
-    .from("rsvps")
-    .delete()
-    .eq("id", id);
+  const { error } =
+    await supabase
+      .from("rsvps")
+      .delete()
+      .eq("id", id);
 
   if (error) {
     throw new AppError(
@@ -239,8 +333,12 @@ const deleteRSVP = async (
 
   await logActivity({
     adminId,
-    action: ACTIVITY_ACTIONS.DELETE_RSVP,
-    description: `Deleted RSVP for ${rsvp.full_name}.`,
+
+    action:
+      ACTIVITY_ACTIONS.DELETE_RSVP,
+
+    description:
+      `Deleted RSVP for ${rsvp.full_name}.`,
   });
 
   return true;

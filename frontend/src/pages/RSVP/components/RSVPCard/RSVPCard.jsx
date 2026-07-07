@@ -9,11 +9,12 @@
  * Main RSVP Form Card
  *
  * Responsibilities:
- * - Display RSVP Form
- * - Handle Form Submission
- * - Collect Guest Information
+ * ----------------------------------------------------------
+ * - Guest Information
+ * - Contact Information
  * - Attendance Selection
- * - Wedding Wishes
+ * - Personal Message
+ * - Submit RSVP
  *
  * Author:
  * OpenAI + Otep
@@ -70,9 +71,9 @@ const RSVPCard = ({
         className={styles.form}
         onSubmit={handleSubmit}
       >
-        {/* ==========================
+        {/* ======================================
             Full Name
-        ========================== */}
+        ====================================== */}
 
         <RSVPInput
           label="Full Name"
@@ -84,9 +85,9 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* ==========================
+        {/* ======================================
             Email Address
-        ========================== */}
+        ====================================== */}
 
         <RSVPInput
           label="Email Address"
@@ -99,9 +100,24 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* ==========================
+        {/* ======================================
+            Contact Number
+        ====================================== */}
+
+        <RSVPInput
+          label="Contact Number"
+          type="tel"
+          name="contact_number"
+          value={formData.contact_number}
+          placeholder="09XXXXXXXXX"
+          required
+          error={errors.contact_number}
+          onChange={handleChange}
+        />
+
+        {/* ======================================
             Attendance
-        ========================== */}
+        ====================================== */}
 
         <AttendanceSelector
           value={formData.attendance}
@@ -109,9 +125,9 @@ const RSVPCard = ({
           onChange={handleAttendance}
         />
 
-        {/* ==========================
+        {/* ======================================
             Wedding Wishes
-        ========================== */}
+        ====================================== */}
 
         <MessageField
           value={formData.message}
@@ -119,9 +135,9 @@ const RSVPCard = ({
           onChange={handleChange}
         />
 
-        {/* ==========================
-            Submit
-        ========================== */}
+        {/* ======================================
+            Submit Button
+        ====================================== */}
 
         <SubmitButton
           loading={loading}
